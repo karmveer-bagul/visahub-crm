@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- core/templates/core/homepage.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to VisaHub CRM</h1>
+    <p>Your trusted platform for managing visa applications efficiently.</p>
+    <p>
+        <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-secondary">Sign Up</a>
+    </p>
+</div>
+{% endblock %}
+
+</body>
+</html>

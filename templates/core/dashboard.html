@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- core/templates/core/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Dashboard</h2>
+    <p>Welcome, {{ request.user.username }}!</p>
+
+    {% if request.user.role == 'admin' %}
+        <p>You are an <strong>Administrator</strong>. You can manage users, teams, and system settings.</p>
+    {% elif request.user.role == 'agent' %}
+        <p>You are an <strong>Agent</strong>. You can manage clients and visa applications.</p>
+    {% elif request.user.role == 'subagent' %}
+        <p>You are a <strong>Sub-Agent</strong>. You can assist in handling client applications.</p>
+    {% elif request.user.role == 'client' %}
+        <p>You are a <strong>Client</strong>. You can view and track your visa application.</p>
+    {% endif %}
+
+    <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+</div>
+{% endblock %}
+
+</body>
+</html>
